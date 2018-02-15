@@ -1,4 +1,4 @@
-// Generic Bounded stack taken and adapted from Joe's ca213 notes on stacks
+// Generic Bounded stack taken and adapted from Joe Morries' ca213 notes on stacks
 // http://computing.dcu.ie/~jmorris/ca213/indexLect.html
 
 public class Stack <T> { // bounded

@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
-
-
 public class TestStack {
 
 	@Test
@@ -42,6 +40,28 @@ public class TestStack {
 	}
 
 	@Test
+	public void test_reassign_stack() {
+		Stack<String> st_string = new Stack<String>();
+		Stack st_generic = st_string;
+
+		assertTrue(st_string.isEmpty());
+		assertTrue(st_generic.isEmpty());
+
+		st_string.push("test");
+
+		assertFalse(st_string.isEmpty());
+        assertFalse(st_generic.isEmpty());
+
+		try {
+			st_generic.push(1);
+
+			fail("Expected incompatible types: int cannot be converted to String");
+		} catch(Exception e) {
+		   assertTrue(st_string.isEmpty());
+		}
+	}
+
+	@Test
 	public void test_exceed_lower_bound() {
 		Stack<String> st_string = new Stack<>();
 		String str = "str";
@@ -56,34 +76,11 @@ public class TestStack {
 
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void test_exceed_upper_bound() {
-		int size = 5;
+		int size = 1;
 
 		Stack<Integer> st_int = new Stack<>(size);
 
-		for(int i=0; i<=size; i++) {
-			boolean status = st_int.push(i);
-
-			if(i < size)
-				assertTrue(status);
-			else
-				assertFalse(status);
-		}
-	}
-
-	@Test
-	public void test_reassign_stack() {
-		Stack<String> st_string = new Stack<String>();
-		Stack st_generic = st_string;
-
-		assertTrue(st_string.isEmpty());
-		assertTrue(st_generic.isEmpty());
-
-		try {
-	        st_generic.push(1);
-
-	        fail("Expected incompatible types: int cannot be converted to String");
-	    } catch(Exception e) {
-	       assertTrue(st_string.isEmpty());
-	    }
+		assertTrue(st_int.push(size));
+		assertFalse(st_int.push(size));
 	}
 }
