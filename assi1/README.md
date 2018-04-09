@@ -1,5 +1,4 @@
-# Assignment
-Assignments for CA650 Software Process Quality
+# Assignment 1
 
 #### Start development container
 ```bash
