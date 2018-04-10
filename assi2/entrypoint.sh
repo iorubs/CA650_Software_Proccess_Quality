@@ -2,4 +2,4 @@
 
 mvn test
 
-mvn org.pitest:pitest-maven:mutationCoverage
+mvn pitest:mutationCoverage

@@ -29,12 +29,6 @@ public class TestCryptoAnalysis {
     }
 	}
 
-  @Test (expected = IOException.class)
-	public void test_read_file_exception() throws IOException {
-		CryptoAnalysis crypto = new CryptoAnalysis();
-    crypto.readKnownTextPairs("invalid.txt");
-	}
-
   @Test
   public void test_split_pairs() {
     CryptoAnalysis crypto = new CryptoAnalysis();
